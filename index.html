@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Button Example</title>
+    <style>
+        /* Hide default checkbox */
+        .switch input { opacity: 0; width: 0; height: 0; }
+        
+        /* The switch container */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+    </style>
+</head>
+<body>
+    <label class="switch">
+        <input type="checkbox" id="myToggle" onchange="handleToggle(this.checked)">
+        <span class="slider"></span>
+    </label>
+    
+    <script>
+        function handleToggle(isOn) {
+            const state = isOn ? 'on' : 'off';
+            console.log('Toggle state:', state);
+            // Add your custom logic here based on state
+            if (state === 'on') {
+                // Do something when toggled ON
+                document.body.style.backgroundColor = '#e3f2fd';
+            } else {
+                // Do something when toggled OFF
+                document.body.style.backgroundColor = '';
+            }
+        }
+    </script>
+</body>
+</html>
